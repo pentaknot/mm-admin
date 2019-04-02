@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~ng2-toasty/style-material.css";
+@import "~ng2-toasty/style-default.css";
+@import "~ng2-toasty/style-bootstrap.css";

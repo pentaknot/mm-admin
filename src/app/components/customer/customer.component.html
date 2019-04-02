@@ -1,0 +1,172 @@
+
+<div class="container-fluid mt-4">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Customer</h1>
+    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50"></i> 
+        Generate Report
+      </a> -->
+  </div>
+
+  <!-- Content Row -->
+
+  <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-12">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div
+          class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+        >
+          <h6 class="m-0 font-weight-bold text-primary">
+            Add Customer
+          </h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <form #myCustomer="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              
+              <div class="col-md-4">
+                <mat-form-field>
+                  <mat-select placeholder="Country" [(ngModel)]="Customer.countryId" name="parent">
+                      <!-- [value]="food.value" -->
+                    <mat-option *ngFor="let item of CountryList" (onSelectionChange)="changeCountry($event)" [value]="item.countryId">
+                      {{ item.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <mat-select placeholder="Select State" [(ngModel)]="Customer.stateId" name="parent">
+                      <!-- [value]="food.value" -->
+                    <mat-option *ngFor="let item of StateList"  (onSelectionChange)="changeState($event)" [value]="item.stateId">
+                      {{ item.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field>
+                  <mat-select placeholder="City" [(ngModel)]="Customer.cityId" name="parent">
+                      <!-- [value]="food.value" -->
+                    <mat-option *ngFor="let item of CityList"  [value]="item.cityId">
+                      {{ item.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.name"
+                    matInput
+                    placeholder="Customer Name"
+                    name="Customer Name"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.email"
+                    matInput
+                    placeholder="Customer Email"
+                    name="Customer Email"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.phoneNumber"
+                    matInput
+                    placeholder=" Phone Number"
+                    name="Phone Number"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.passwordHash"
+                    matInput
+                    placeholder=" Password  "
+                    name="Password Hash "
+                    type = "password"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.shippingAddress"
+                    matInput
+                    placeholder="Shipping Address"
+                    name="Customer Address"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.billingAddress"
+                    matInput
+                    placeholder="Billing Address"
+                    name="Customer Billing Address"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="Customer.pincode"
+                    matInput
+                    placeholder="Pincode"
+                    name="Pincode"
+                    type="number"
+                    required
+                    [disabled]="Isdisabled"
+                  />
+                </mat-form-field>
+              </div>
+           
+             
+
+            
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="text-center">
+            <button
+              class="btn btn-primary "
+              [disabled]="!myCustomer.form.valid || Isdisabled"
+            >
+              Submit
+            </button>
+          </div>
+          </form>
+          <ng2-toasty></ng2-toasty>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
